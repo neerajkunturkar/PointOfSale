@@ -1,5 +1,6 @@
 package com.pos.core.util.security;
 
+import com.pos.app.common.Constants;
 import com.pos.app.model.core.User;
 import com.pos.app.services.SecurityService;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -76,7 +77,7 @@ public class JwtInterceptor extends HandlerInterceptorAdapter {
             res.getWriter().write("{\"status\": \"ERROR\",\"message\": \"Not Authorized\"}");
             res.getWriter().flush();
         } else {
-            req.getSession().setAttribute("SESSION_USER", user);
+            req.getSession().setAttribute(Constants.SESSION_USER, user);
         }
 
         return !unAuthorized;

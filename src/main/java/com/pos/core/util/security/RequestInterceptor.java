@@ -1,5 +1,6 @@
 package com.pos.core.util.security;
 
+import com.pos.app.common.Constants;
 import com.pos.app.model.core.User;
 import com.pos.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        User user = (User) request.getSession().getAttribute("SESSION_USER");
+        User user = (User) request.getSession().getAttribute(Constants.SESSION_USER);
         if(user != null) {
             User tenantUser = userRepository.findByUserName(user.getUserName());
             if(tenantUser != null){
