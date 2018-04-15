@@ -1,6 +1,7 @@
 package com.pos.app.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.pos.app.common.Constants;
 import com.pos.app.dto.ErrorDto;
 import com.pos.app.dto.UserDto;
 import com.pos.app.dto.order.SuccessDto;
@@ -73,7 +74,7 @@ public class LoginController {
         String error;
 
         try {
-            User authenticatedUser = (User) request.getSession().getAttribute("SESSION_USER");
+            User authenticatedUser = (User) request.getSession().getAttribute(Constants.SESSION_USER);
             securityService.releaseToken(authenticatedUser);
             if (authenticatedUser == null) {
                 ErrorDto errorDto = new ErrorDto();
