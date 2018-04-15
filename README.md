@@ -20,7 +20,9 @@ Simple model structure:
       | CartProductDetail3  
 ```        
 In this application each user is authenticated using spring jwt authentication. After successful authentication, the token is validated before using any of the service. If the token provided is invalid, then the user is not restricted to use the rest services.  
-  
+
+The database dump with few products is populated. Individual transactions are not included. The application connects to the database  naming : pos
+
 1. To setup the project for Idea:  
 	Windows - gradlew.bat cleanIdea idea  
   
